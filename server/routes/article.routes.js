@@ -4,6 +4,22 @@ const articlecontroller = require("../controllers/article.ctrl");
 const multer = require("multer");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
+
+const checkJwt = jwt({
+  secret: jwksRsa({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://kirimi.auth0.com/.well-know/jwks.json`
+  }),
+
+  // validate the audience & the issuer
+  audience: "bl7UPdeRY4PUGm2VtL4zfz0GOobGJjWC",
+  issuer: `https://kirimi.auth0.com`,
+  algorithms: ["RS256"]
+});
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
@@ -20,21 +36,23 @@ module.exports = router => {
   router.route("/articles").get(articlecontroller.getAll);
 
   /**
-   * add an article
+   * add an article authenticated routes
    */
   router
     .route("/article")
-    .post(parser.single("image"), articlecontroller.addArticle);
+    .post(parser.single("image"), checkJwt, articlecontroller.addArticle);
 
   /**
-   * clap on an article
+   * clap on an article authenticated routes
    */
-  router.route("/article/clap").post(articlecontroller.clapArticle);
+  router.route("/article/clap").post(checkJwt, articlecontroller.clapArticle);
 
   /**
-   * comment on an article
+   * comment on an article  authenticated routes
    */
-  router.route("/article/comment").post(articlecontroller.commentArticle);
+  router
+    .route("/article/comment")
+    .post(checkJwt, articlecontroller.commentArticle);
 
   /**
    * get a particlular article to view

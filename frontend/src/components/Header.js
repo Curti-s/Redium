@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import auth0Client from "../utils/Auth";
+
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.signOut = this.signOut.bind(this);
+  }
+
+  signOut() {
+    auth0Client.signOut();
+    this.props.history.replace("/");
+  }
+
   render() {
     return (
       <div>
@@ -38,24 +51,32 @@ class Header extends Component {
                   Top stories
                 </a>
               </li>
+              {auth0Client.isAuthenticated() && (
+                <li className="nav-item sign-in-button">
+                  <button
+                    className="btn button green-border-button"
+                    onClick={() => {
+                      this.signOut();
+                    }}
+                  >
+                    Sign out
+                  </button>
+                </li>
+              )}
             </ul>
+
             <div className="folding-nav">
               <ul className="nav navbar-nav navbar-right">
-                {this.props.isAuth ? (
+                {this.props.isAuth && auth0Client.isAuthenticated() ? (
                   <li className="new-post-button">
                     <a
                       className="button"
                       data-behavior="trigger-overlay"
-                      href="/editor"
+                      href="/edidor"
                     >
                       Write a story
                     </a>
                   </li>
-                ) : (
-                  ""
-                )}
-                {this.props.isAuth ? (
-                  ""
                 ) : (
                   <li
                     onClick={this.props.openSignInWith}
@@ -94,4 +115,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(withRouter(Header));

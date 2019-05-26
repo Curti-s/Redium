@@ -1,6 +1,17 @@
 const multipart = require("connect-multiparty");
 const multipartWare = multipart();
 const articlecontroller = require("../controllers/article.ctrl");
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "redium",
+  allowedFormats: ["jpg", "png"]
+});
+
+const parser = multer({ storage: storage });
 
 module.exports = router => {
   /**
@@ -11,7 +22,9 @@ module.exports = router => {
   /**
    * add an article
    */
-  router.route("/article").post(multipartWare, articlecontroller.addArticle);
+  router
+    .route("/article")
+    .post(parser.single("image"), articlecontroller.addArticle);
 
   /**
    * clap on an article

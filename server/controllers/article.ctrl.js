@@ -1,6 +1,5 @@
 const Article = require("../models/article.models");
 const User = require("../models/user.models");
-const fs = require("fs");
 const cloudinary = require("cloudinary");
 
 module.exports = {

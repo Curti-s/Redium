@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 class EditorHeader extends Component {
   render() {
     return (
@@ -6,13 +8,13 @@ class EditorHeader extends Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid col-md-10 col-md-offset-1">
             <div className="navbar-header">
-              <a className="navbar-brand" id="logo" href="/">
+              <Link to="/" className="navbar-brand" id="logo">
                 <img
                   alt="Stories"
                   src="/assets/img/stories-logo.svg"
                   height="40"
                 />
-              </a>
+              </Link>
             </div>
             <ul className="nav navbar-nav filter-links">
               <li>

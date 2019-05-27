@@ -8,6 +8,7 @@ import App from "./components/App";
 import { store, history } from "./redux/store";
 import { getUser } from "./redux/actions/action";
 import "./assets/redium.css";
+import "./assets/css/font-awesome.min.css";
 
 if (localStorage.Auth) {
   // update localStorage

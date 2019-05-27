@@ -1,4 +1,5 @@
 import axios from "axios";
+import auth0Client from "../../utils/Auth";
 
 const url =
   process.env.NODE_ENV === "production"
@@ -8,7 +9,9 @@ const url =
 export function loadArticles() {
   return dispatch => {
     axios
-      .get(`${url}articles`)
+      .get(`${url}articles`, {
+        headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` }
+      })
       .then(res => {
         dispatch({ type: "LOAD_ARTICLES", articles: res.data });
       })
@@ -30,7 +33,9 @@ export async function getUser(_id) {
 export function getUserProfile(_id) {
   return dispatch => {
     axios
-      .get(`${url}user/profile/${_id}`)
+      .get(`${url}user/profile/${_id}`, {
+        headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` }
+      })
       .then(res => {
         dispatch({ type: "SET_PROFILE", profile: res.data });
       })
@@ -43,7 +48,9 @@ export function getUserProfile(_id) {
 export function getArticle(article_id) {
   return dispatch => {
     axios
-      .get(`${url}article/${article_id}`)
+      .get(`${url}article/${article_id}`, {
+        headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` }
+      })
       .then(res => {
         dispatch({ type: "VIEW_ARTICLE", article: res.data });
       })
@@ -54,7 +61,11 @@ export function getArticle(article_id) {
 export function clap(article_id) {
   return dispatch => {
     axios
-      .post(`${url}article/clap`, { article_id })
+      .post(
+        `${url}article/clap`,
+        { article_id },
+        { headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` } }
+      )
       .then(res => {
         dispatch({ type: "CLAP_ARTICLE" });
       })
@@ -65,7 +76,11 @@ export function clap(article_id) {
 export function follow(id, user_id) {
   return dispatch => {
     axios
-      .post(`${url}user/follow`, { id, user_id })
+      .post(
+        `${url}user/follow`,
+        { id, user_id },
+        { headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` } }
+      )
       .then(res => {
         dispatch({ type: "FOLLOW_USER", user_id });
       })
@@ -76,7 +91,9 @@ export function follow(id, user_id) {
 export function signInUser(user_data) {
   return dispatch => {
     axios
-      .post(`${url}/user`, user_data)
+      .post(`${url}/user`, user_data, {
+        headers: { Authorization: `Bearer ${auth0Client.getIdToken()}` }
+      })
       .then(res => {
         let user = res.data;
         localStorage.setItem("Auth", JSON.stringify(user));

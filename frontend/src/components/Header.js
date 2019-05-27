@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import auth0Client from "../utils/Auth";
 
 class Header extends Component {
@@ -39,30 +39,26 @@ class Header extends Component {
         >
           <div className="">
             <div className="navbar-header">
-              <a className="navbar-brand" id="logo" href="/">
+              <Link className="navbar-brand" id="logo" to="/">
                 <img
                   alt="Stories"
                   src="/assets/img/stories-logo.svg"
                   height="40"
                 />
-              </a>
+              </Link>
             </div>
             <ul className="navbar-nav filter-links">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Top stories
-                </a>
-              </li>
-              {auth0Client.isAuthenticated() && (
-                <li className="new-post-button">
-                  <a
-                    className=""
-                    data-behavior="trigger-overlay"
-                    href="/edidor"
-                  >
-                    Write a story
+              <Link to="/">
+                <li className="nav-item">
+                  <a className="nav-link" href="/">
+                    Top stories
                   </a>
                 </li>
+              </Link>
+              {auth0Client.isAuthenticated() && (
+                <Link to="/editor" data-behavior="trigger-overlay">
+                  <li className="new-post-button">Write a story</li>
+                </Link>
               )}
             </ul>
 

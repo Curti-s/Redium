@@ -7,6 +7,7 @@ import ArticleView from "./ArticleView";
 import Editor from "./Editor";
 import SignInWith from "./SignInWith";
 import requireAuthentication from "../utils/requireAuth";
+import Callback from "./Callback";
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
         {!pathname.includes("editor") ? <Header /> : ""}
         <SignInWith />
         <Switch>
+          <Route exact path="/callback" component={Callback} />
           <Route exact path="/" component={Feed} />
           <Route path="/profile/:id" component={Profile} />
           <Route path="/articleview/:id" component={ArticleView} />

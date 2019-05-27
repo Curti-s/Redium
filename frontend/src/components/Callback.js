@@ -9,7 +9,7 @@ class Callback extends React.Component {
   }
 
   render() {
-    <p> Loading... </p>;
+    return <p> Loading... </p>;
   }
 }
 

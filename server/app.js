@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes/index");
 
 const app = express();
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/redium";
+const url = process.env.MONGODB_URI || "mongodb://mongodb:27017/redium";
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

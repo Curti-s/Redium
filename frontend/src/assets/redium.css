@@ -10034,7 +10034,6 @@ body {
   padding: 0;
 }
 .navbar-header {
-  padding: 8px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 .navbar-fixed-top {
@@ -10150,6 +10149,13 @@ nav.navbar .new-post-button:hover a {
 }
 nav.navbar .new-post-button,
 nav.navbar .sign-in-button {
+  border: 1px solid #4caf50;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: green;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
   margin-top: 5px;
   margin-right: 10px;
 }
@@ -10223,7 +10229,7 @@ nav.navbar .nav-dropdown .dropdown-arrow-bottom {
 }
 nav.navbar #logo {
   width: 128px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   position: relative;
 }
 nav.navbar #logo img,
@@ -12718,7 +12724,7 @@ a.tag:hover {
   padding: 12px 30px;
   border-radius: 3px;
   margin-right: 10px;
-  color: #fff !important;
+  color: #fff;
   position: relative;
   display: inline-block;
   width: 130px;

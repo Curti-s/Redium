@@ -30,7 +30,9 @@ class Header extends Component {
             </nav>
           </div>
         </div>
+
         <div data-behavior="progress-bar" className="progress-bar" />
+
         <nav
           data-behavior="animated-navbar"
           className="navbar navbar-expand-sm navbar-light navbar-fixed-top is-inView"
@@ -52,43 +54,39 @@ class Header extends Component {
                 </a>
               </li>
               {auth0Client.isAuthenticated() && (
-                <li className="nav-item sign-in-button">
-                  <button
-                    className="btn button green-border-button"
-                    onClick={() => {
-                      this.signOut();
-                    }}
+                <li className="new-post-button">
+                  <a
+                    className=""
+                    data-behavior="trigger-overlay"
+                    href="/edidor"
                   >
-                    Sign out
-                  </button>
+                    Write a story
+                  </a>
                 </li>
               )}
             </ul>
 
             <div className="folding-nav">
               <ul className="nav navbar-nav navbar-right">
-                {this.props.isAuth && auth0Client.isAuthenticated() ? (
-                  <li className="new-post-button">
-                    <a
-                      className="button"
-                      data-behavior="trigger-overlay"
-                      href="/edidor"
+                {auth0Client.isAuthenticated() ? (
+                  <li className="nav-item ">
+                    <button
+                      className="btn sign-in-button"
+                      onClick={() => {
+                        this.signOut();
+                      }}
                     >
-                      Write a story
-                    </a>
+                      Sign out
+                    </button>
                   </li>
                 ) : (
-                  <li
-                    onClick={this.props.openSignInWith}
-                    className="sign-in-button"
-                  >
-                    <a
-                      className="button green-border-button"
-                      data-behavior="trigger-overlay"
-                      href="#"
+                  <li className="nav-item">
+                    <button
+                      onClick={auth0Client.signIn}
+                      className="btn sign-in-button"
                     >
                       Sign in / Sign up
-                    </a>
+                    </button>
                   </li>
                 )}
               </ul>

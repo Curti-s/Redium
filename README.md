@@ -1,29 +1,16 @@
-[![FVCproductions](https://res.cloudinary.com/curtiskirimi/image/upload/v1558939256/stories-logo_frxb6k.png)](https://redium-7e0474.netlify.com/)
+[![Redium](frontend/public/assets/img/logo.png)](https://redium-7e0474.netlify.com/)
 
 # Redium
 
-> Story telling service
+> Story telling service created with React and Redux and Docker
 
-> Created with React and Redux
+---
 
-**Badges will go here**
-
-- build status
-- issues (waffle.io maybe)
-- devDependencies
-- npm package
-- coverage
-- slack
-- downloads
-- gitter chat
-- license
-- etc.
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/72de5888-abab-409b-8053-216fe60ca46b/deploy-status)](https://app.netlify.com/sites/redium-7e0474/deploys)
+## [![Netlify Status](https://api.netlify.com/api/v1/badges/72de5888-abab-409b-8053-216fe60ca46b/deploy-status)](https://app.netlify.com/sites/redium-7e0474/deploys)
 
 ## Table of Contents
 
-- [Getting Started](#gettingstarted)
+- [Getting Started](#getting-started)
 
 - [Features](#features)
 
@@ -33,45 +20,26 @@
 
 - [License](#license)
 
+---
+
 # Getting Started
 
 ### Clone
 
 - Clone this repo to your local machine using `https://github.com/Curti-s/Redium.git`
-
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install fvcproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
-
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
+- Run `docker-compose up --build` to build the containers
 
 ---
 
-## Features
+# Features
 
-## Usage (Optional)
+> This project uses ReactJs / Redux for the front-end and Express / NodeJs for the back-end. It depictsa story telling service (Medium), where users can sign up / sign in and share their stories.
 
-## Documentation (Optional)
-
-## Tests (Optional)
+> Auth0 was used to facilitate the sign up/in process. The develop API keys are used.
 
 ---
 
-## Contributing
+# Contributing
 
 ### Step 1
 
@@ -89,3 +57,11 @@ $ bower install
 ### Step 3
 
 - 🔃 Create a new pull request
+
+---
+
+# Author
+
+> [Kirimi](https://github.com/Curti-s)
+
+---

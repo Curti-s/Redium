@@ -4,7 +4,7 @@ import auth0Client from "../../utils/Auth";
 const url =
   process.env.NODE_ENV === "production"
     ? "/api/"
-    : "http://localhost:9000/api/";
+    : "http://backend-service:9000/api/";
 
 export function loadArticles() {
   return dispatch => {

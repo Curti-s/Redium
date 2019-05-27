@@ -42,7 +42,7 @@ class Header extends Component {
               <Link className="navbar-brand" id="logo" to="/">
                 <img
                   alt="Stories"
-                  src="/assets/img/stories-logo.svg"
+                  src="/assets/img/redium_transparent_logo.svg"
                   height="40"
                 />
               </Link>
@@ -81,7 +81,7 @@ class Header extends Component {
                       onClick={auth0Client.signIn}
                       className="btn sign-in-button"
                     >
-                      Sign in / Sign up
+                      Sign in
                     </button>
                   </li>
                 )}

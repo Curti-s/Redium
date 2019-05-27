@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "3001:3000"
+      - "5000:5000"
     volumes:
       - ./frontend:/frontend
       - /frontend/node_modules
@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "9000:9000"
+      - "9001:9000"
     volumes:
       - ./server:/server
       - /server/node_modules
@@ -40,7 +40,7 @@ services:
     volumes:
       - ./data_node:/data/db
     ports:
-      - "27017:27017"
+      - "27016:27017"
     command: mongod --noauth --smallfiles
     networks:
       - webappnetwork

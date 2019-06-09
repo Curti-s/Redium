@@ -1,4 +1,4 @@
-[![Redium](frontend/public/assets/img/logo.png)](https://redium-7e0474.netlify.com/)
+[![Redium](frontend/public/assets/img/redium_logo.png)](https://redium-7e0474.netlify.com/)
 
 # Redium
 

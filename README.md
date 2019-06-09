@@ -33,7 +33,7 @@
 
 # Features
 
-> This project uses ReactJs / Redux for the front-end and Express / NodeJs for the back-end. It depictsa story telling service (Medium), where users can sign up / sign in and share their stories.
+> This project uses ReactJs / Redux for the front-end and Express / NodeJs for the back-end. It depicts a story telling service like [Medium](http://medium.com/), where users can sign up / sign in and share their stories.
 
 > Auth0 was used to facilitate the sign up/in process. The develop API keys are used.
 

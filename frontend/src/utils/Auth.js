@@ -5,7 +5,7 @@ class Auth {
     this.auth0 = new auth0.WebAuth({
       domain: "kirimi.auth0.com",
       clientID: "bl7UPdeRY4PUGm2VtL4zfz0GOobGJjWC",
-      redirectUri: "https://redium-7e0474.netlify.com/callback",
+      redirectUri: "https://redium-7e0474.netlify.com/",
       responseType: "token id_token",
       scope: "openid profile"
     });

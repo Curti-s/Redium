@@ -42,8 +42,8 @@ class Header extends Component {
               <Link className="navbar-brand" id="logo" to="/">
                 <img
                   alt="Stories"
-                  src="/assets/img/redium_transparent_logo.svg"
-                  height="40"
+                  src="/assets/img/redium logo.png"
+                  width="50"
                 />
               </Link>
             </div>
